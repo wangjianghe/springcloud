@@ -1,0 +1,34 @@
+server:
+  port: 8951
+spring:
+  profiles:
+    active: dev
+  application:
+    name: kafka
+  cloud:
+    nacos:
+      config:
+        server-addr: http://120.53.251.107:8848
+        file-extension: yaml
+        encode: utf-8
+        group: DEFAULT_GROUP
+        namespace: 191ad919-a640-44ea-8900-61239a372719
+        extension-configs:
+          #服务发现配置
+          - data-id: wjh-config-discovery-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            refresh: true
+            group: common
+    stream:
+      kafka:
+        binder:
+          brokers:  115.159.77.177:9092  # kafka服务地址和端口
+          zk-nodes: 115.159.77.177:2181  # ZK的集群配置地址和端口
+          min-partition-count: 1
+          auto-create-topics: true
+          auto-add-partitions: true
+      bindings:
+        myTestKafkaOut:
+          destination: lsy-kafka-topic
+          content-tpye: text/plain
+debug: false
+

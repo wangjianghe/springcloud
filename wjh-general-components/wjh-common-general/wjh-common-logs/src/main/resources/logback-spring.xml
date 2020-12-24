@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <contextName>logback-spring</contextName>
+    <property name="pattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg %n"/>
+    <property name="pattern-color" value="%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) [%thread] %highlight(%-5level) %green(%logger{50}) - %highlight(%msg) %n"/>
+    <property name="LOG_HOME" value="logs"/>
+
+    <!-- 控制台输出 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                [%d{yyyy-MM-dd HH:mm:ss.SSS} | %X{traceId} | %X{currUserId} | %X{deviceName} | %X{versionCode} | %X{appVersion} | %X{imei} | %X{channel} | %X{from} | %X{appId} | %marker | %thread %-5level %logger{50} - %msg %xException]%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- 控制台输出-带颜色 -->
+    <appender name="CONSOLE-WITH-COLOR" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                [%green(%d{yyyy-MM-dd HH:mm:ss.SSS}) | %black(%X{traceId}) | %black(%X{currUserId}) | %black(%X{deviceName}) | %black(%X{versionCode}) | %black(%X{appVersion}) | %black(%X{imei}) | %black(%X{channel}) | %black(%X{from}) | %black(%X{appId}) | %marker | %blue(%thread %-5level %logger{50} - %msg) %red(%xException)]%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- 文件输出 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/cataline.log.%d.%i</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>1024MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>10240MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                [%d{yyyy-MM-dd HH:mm:ss.SSS} | %X{traceId} | %X{currUserId} | %X{deviceName} | %X{versionCode} | %X{appVersion} | %X{imei} | %X{channel} | %X{from} | %X{appId} | %marker | %thread %-5level %logger{50} - %msg %xException]%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- 异步输出 -->
+    <appender name="ASYNC-FILE" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志, 日志满的时候回block -->
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>45000</queueSize>
+        <appender-ref ref="FILE"/>
+    </appender>
+
+    <!-- 控制台输出 -->
+    <appender name="ASYNC-CONSOLE" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志, 日志满的时候回block -->
+        <discardingThreshold>0</discardingThreshold>
+        <queueSize>45000</queueSize>
+        <appender-ref ref="CONSOLE"/>
+    </appender>
+
+    <springProfile name="local,dev">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE-WITH-COLOR"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="qa,prod">
+        <root level="INFO">
+            <appender-ref ref="ASYNC-CONSOLE"/>
+        </root>
+    </springProfile>
+
+</configuration>
