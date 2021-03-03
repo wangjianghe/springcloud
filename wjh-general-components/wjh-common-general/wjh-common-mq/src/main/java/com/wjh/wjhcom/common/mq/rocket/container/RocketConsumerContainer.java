@@ -46,7 +46,6 @@ public class RocketConsumerContainer implements ApplicationContextAware {
     private Object createConsumer(Object bean, RocketMqProperties rocketMqProperties) throws Exception {
         MqClientFactory factory=new RocketMqClientFactory();
         properties.setProperty("address",rocketMqProperties.getAddress());
-        RocketMqMsgListener listener=bean.getClass().getAnnotation(RocketMqMsgListener.class);
-        return factory.createConsumer(properties,listener);
+        return factory.createConsumer(properties,bean);
     }
 }
