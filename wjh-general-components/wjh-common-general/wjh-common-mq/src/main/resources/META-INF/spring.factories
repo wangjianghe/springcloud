@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.wjh.wjhcom.common.mq.rocket.config.RocketMqConfiguration
+

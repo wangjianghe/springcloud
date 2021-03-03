@@ -17,6 +17,6 @@ public class MockTest extends BaseMockTest<MockTestController> {
         RequestBuilder request= MockMvcRequestBuilders.get("/testPublicMock").param("s","2131234")
             .accept(org.springframework.http.MediaType.APPLICATION_JSON);
         MvcResult result=getMockMvc().perform(request).andExpect(status().isOk()).andReturn();
-        log.info("result: "+result.getResponse().getContentAsString());
+/*        log.info("result: "+result.getResponse().getContentAsString());*/
     }
 }

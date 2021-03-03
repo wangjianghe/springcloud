@@ -7,17 +7,23 @@
         <artifactId>wjh-general-components</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>wjh-common-general</artifactId>
+    <artifactId>wjh-common-mq</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>wjh-common-general</name>
-    <packaging>pom</packaging>
+    <name>wjh-common-mq</name>
+    <description>Demo project for Spring Boot</description>
+    <packaging>jar</packaging>
 
-    <modules>
-        <module>wjh-common-core</module>
-        <module>wjh-common-test</module>
-        <module>wjh-common-logs</module>
-        <module>wjh-common-mq</module>
-    </modules>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>{project.name}</finalName>
@@ -41,4 +47,5 @@
             </plugins>
         </pluginManagement>
     </build>
+
 </project>

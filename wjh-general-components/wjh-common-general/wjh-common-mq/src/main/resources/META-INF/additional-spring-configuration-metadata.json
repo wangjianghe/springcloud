@@ -1,0 +1,8 @@
+{"properties": [
+  {
+    "name": "wjh.mq.rocket.address",
+    "type": "java.lang.String",
+    "defaultValue": "127.0.0.1:9876",
+    "description": "rocketMq默认地址."
+  }
+]}
