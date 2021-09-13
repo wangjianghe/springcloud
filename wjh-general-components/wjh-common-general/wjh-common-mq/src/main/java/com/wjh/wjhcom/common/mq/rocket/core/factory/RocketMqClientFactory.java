@@ -3,6 +3,7 @@ package com.wjh.wjhcom.common.mq.rocket.core.factory;
 import com.wjh.wjhcom.common.mq.rocket.annotation.RocketMessage;
 import com.wjh.wjhcom.common.mq.rocket.annotation.RocketMqMsgListener;
 import com.wjh.wjhcom.common.mq.rocket.constants.SelectorType;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.MessageSelector;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
@@ -14,6 +15,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.Properties;
 
+@Slf4j
 public class RocketMqClientFactory implements MqClientFactory {
     @Override
     public Object createProducer(Properties properties,Object annotationObject) throws MQClientException {
@@ -65,6 +67,7 @@ public class RocketMqClientFactory implements MqClientFactory {
             throw new Exception("consumerObject is error type");
         }
         consumer.start();
+        log.info("wjh-rocketmq-consumerStart-"+topic);
         return consumer;
     }
 }

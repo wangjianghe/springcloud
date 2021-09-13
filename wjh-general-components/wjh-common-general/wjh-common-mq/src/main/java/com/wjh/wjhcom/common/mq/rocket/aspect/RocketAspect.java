@@ -29,6 +29,7 @@ public class RocketAspect {
     public void commonMessagePointcut(){log.info("start sending commonMessage");}
     @Around("commonMessagePointcut()")
     public Object commonMessageAround(ProceedingJoinPoint point) throws Throwable {
+        log.info("开始发送");
         RocketMessage rocketMessage=AspectUtils.getDeclaringClassAnnotation(point, RocketMessage.class);
         CommonMessage message=AspectUtils.getAnnotation(point, CommonMessage.class);
         Object o=point.proceed();

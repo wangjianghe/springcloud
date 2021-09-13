@@ -6,6 +6,7 @@ import java.util.Date;
 
 public class DateUtil {
     private static final String DAY_FORMAT_STRING="yyyy-MM-dd";
+    private static final String TIME_FORMAT_STRING="yyyy-MM-dd HH:mm:ss";
 
     public static String formatCurrentDate(String pattern){
         return DateFormatUtils.format(new Date(),pattern);

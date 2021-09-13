@@ -4,7 +4,6 @@ import com.wjh.wjhcom.common.mq.rocket.annotation.RocketMqMsgListener;
 import com.wjh.wjhcom.common.mq.rocket.config.RocketMqProperties;
 import com.wjh.wjhcom.common.mq.rocket.core.factory.MqClientFactory;
 import com.wjh.wjhcom.common.mq.rocket.core.factory.RocketMqClientFactory;
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -12,7 +11,6 @@ import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class RocketConsumerContainer implements ApplicationContextAware {
     private ApplicationContext applicationContext;

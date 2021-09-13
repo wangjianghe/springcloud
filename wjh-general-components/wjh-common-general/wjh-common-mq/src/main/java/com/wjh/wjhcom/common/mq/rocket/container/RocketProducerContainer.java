@@ -8,6 +8,7 @@ import com.wjh.wjhcom.common.mq.rocket.core.factory.MqClientFactory;
 import com.wjh.wjhcom.common.mq.rocket.core.factory.RocketMqClientFactory;
 import com.wjh.wjhcom.common.mq.rocket.utils.AnnotatedMethodUtils;
 import com.wjh.wjhcom.common.mq.rocket.utils.AopTargetUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -20,6 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+@Slf4j
 public class RocketProducerContainer implements ApplicationContextAware {
     private ApplicationContext applicationContext;
     private Map<String,Object> producerContainer;
@@ -43,14 +45,14 @@ public class RocketProducerContainer implements ApplicationContextAware {
             Object targetBean= AopTargetUtils.getTarget(bean);
             Method[] methods=targetBean.getClass().getDeclaredMethods();
             for (Method method:methods){
-                CommonMessage commonMessage=method.getAnnotation(CommonMessage.class);
+                CommonMessage commonMessage;
                 commonMessage=AnnotationUtils.findAnnotation(method,CommonMessage.class);
-                TestMessage testMessage =AnnotationUtils.findAnnotation(method,TestMessage.class);
                 if (commonMessage!=null){
                     Object producer=createProducer(bean,rocketProperties);
                     String producerKey=rocketMessage.groupId() +
                             commonMessage.topic() +
                             commonMessage.tag();
+                    log.info("product-info-{}",producerKey);
                     producerContainer.put(producerKey,producer);
                 }
             }
