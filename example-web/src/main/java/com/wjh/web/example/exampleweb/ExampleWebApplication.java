@@ -1,21 +1,17 @@
-package com.wjh.example.admin;
+package com.wjh.web.example.exampleweb;
 
-import com.wjh.common.logs.annotation.EnableTrackableLogger;
-import com.wjh.common.swagger.config.SwaggerAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Import;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @ComponentScan(basePackages = {"com.wjh"})
 @EnableFeignClients(basePackages = "com.wjh")
 @SpringCloudApplication
-public class ExampleAdminApplication {
+public class ExampleWebApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ExampleAdminApplication.class, args);
+        SpringApplication.run(ExampleWebApplication.class, args);
     }
 
 }

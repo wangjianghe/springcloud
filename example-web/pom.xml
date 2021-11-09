@@ -4,18 +4,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.wjh</groupId>
-        <artifactId>example</artifactId>
+        <artifactId>wjh-general-components</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>example-admin</artifactId>
-    <packaging>jar</packaging>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>example-admin</name>
 
+    <groupId>com.wjh.web.example</groupId>
+
+    <artifactId>example-web</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>example-web</name>
+    <description>example-web模块</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
     <dependencies>
         <!--注册中心客户端-->
         <dependency>
@@ -50,6 +52,11 @@
         <dependency>
             <groupId>com.wjh</groupId>
             <artifactId>wjh-common-swagger</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wjh</groupId>
+            <artifactId>example-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

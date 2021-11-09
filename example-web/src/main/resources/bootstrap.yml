@@ -1,0 +1,19 @@
+server:
+  port: 8956
+spring:
+  profiles:
+    active: dev
+  application:
+    name: example-web
+  cloud:
+    nacos:
+      config:
+        server-addr: http://120.53.251.107:8848
+        file-extension: yaml
+        encode: utf-8
+        group: DEFAULT_GROUP
+        namespace: 191ad919-a640-44ea-8900-61239a372719
+        extension-configs:
+          - data-id: wjh-config-discovery-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+            refresh: true
+            group: common
