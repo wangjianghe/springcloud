@@ -11,6 +11,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class TracingConfig {
     /**
+     * 是否开启日志
+     */
+    private boolean traceIdLog = false;
+    /**
      *controller层打印
      */
     private BasicConfig controller=new BasicConfig(true,true,true,true);

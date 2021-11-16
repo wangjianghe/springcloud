@@ -1,6 +1,5 @@
 package com.wjh.example.admin;
 
-import com.wjh.common.logs.annotation.EnableTrackableLogger;
 import com.wjh.common.swagger.config.SwaggerAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -7,50 +7,29 @@
         <artifactId>wjh-common-general</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>wjh-common-core</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>wjh-common-core</name>
-    <description>wjh 自用核心包</description>
+    <artifactId>wjh-common-logs-v1</artifactId>
     <packaging>jar</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>wjh-common-logs-v1</name>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
-        </dependency>
-        <!--redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <groupId>com.wjh</groupId>
+            <artifactId>wjh-common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
-        <!--feign 依赖-->
-        <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-okhttp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-        </dependency>
-        <!--swagger 依赖-->
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
-        <finalName>${project.name}</finalName>
+        <finalName>{project.name}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>

@@ -1,0 +1,80 @@
+{"properties": [
+  {
+    "name": "tope.logger.tracing.enableArmsEagleEye",
+    "type": "java.lang.Boolean",
+    "defaultValue": false,
+    "description": "启用与阿里云Aram进行TraceId进行关联."
+  },
+  {
+    "name": "tope.logger.tracing.controller.enable",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用Controller层拦截."
+  },
+  {
+    "name": "tope.logger.tracing.controller.enablePreLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用前置拦截器."
+  },
+  {
+    "name": "tope.logger.tracing.controller.enablePostLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用后置拦截器."
+  },
+  {
+    "name": "tope.logger.tracing.controller.enableErrorLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用错误拦截器."
+  },
+  {
+    "name": "tope.logger.tracing.service.enable",
+    "type": "java.lang.Boolean",
+    "defaultValue": false,
+    "description": "启用Service层拦截."
+  },
+  {
+    "name": "tope.logger.tracing.service.enablePreLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用前置拦截器."
+  },
+  {
+    "name": "tope.logger.tracing.service.enablePostLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用后置拦截器."
+  },
+  {
+    "name": "tope.logger.tracing.service.enableErrorLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用错误拦截器."
+  },
+  {
+    "name": "tope.logger.tracing.feign.enable",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用Feign层拦截."
+  },
+  {
+    "name": "tope.logger.tracing.feign.enablePreLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用前置拦截器."
+  },
+  {
+    "name": "tope.logger.tracing.feign.enablePostLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用后置拦截器."
+  },
+  {
+    "name": "tope.logger.tracing.feign.enableErrorLogging",
+    "type": "java.lang.Boolean",
+    "defaultValue": true,
+    "description": "启用错误拦截器."
+  }
+]}

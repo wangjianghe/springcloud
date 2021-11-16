@@ -45,7 +45,7 @@
         </dependency>
         <dependency>
             <groupId>com.wjh</groupId>
-            <artifactId>wjh-common-logs</artifactId>
+            <artifactId>wjh-common-logs-v1</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!--swagger 依赖-->
