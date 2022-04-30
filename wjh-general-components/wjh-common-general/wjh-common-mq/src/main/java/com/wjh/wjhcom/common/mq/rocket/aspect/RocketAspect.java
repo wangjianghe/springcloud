@@ -10,6 +10,7 @@ import com.wjh.wjhcom.common.mq.rocket.utils.AspectUtils;
 import lombok.Data;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.rocketmq.client.exception.MQBrokerException;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.*;
@@ -84,10 +85,24 @@ public class RocketAspect implements ApplicationContextAware {
         }
         producer.send(sendMessage);
     }
-    public void sendTransactionMessage(TransactionMessage transactionMessage,TransactionMQProducer producer,Object o) throws IllegalAccessException, InstantiationException, MQClientException {
+    public void sendTransactionMessage(TransactionMessage transactionMessage,TransactionMQProducer producer,Object o) throws Exception {
         String objString=JSON.toJSONString(o);
         Message sendMessage=new Message(transactionMessage.topic(),transactionMessage.tag(),objString.getBytes());
-        LocalTransactionExecuter executor=transactionMessage.executer().newInstance();
+        String executorPath=transactionMessage.executorPath();
+        if (StringUtils.isEmpty(executorPath)){
+            throw new Exception("executorPath is null");
+        }
+        Class executerClass;
+        try {
+            executerClass=Class.forName(executorPath);
+            if (!LocalTransactionExecuter.class.isAssignableFrom(executerClass)){
+                log.error("class is not extend LocalTransactionExecuter");
+                throw new Exception("class is not extend LocalTransactionExecuter");
+            }
+        }catch (Exception e){
+            throw new Exception("executorPath class create error");
+        }
+        LocalTransactionExecuter executor= (LocalTransactionExecuter) executerClass.newInstance();
         TransactionSendResult result=producer.sendMessageInTransaction(sendMessage,executor,transactionMessage.arg());
         log.info("sendTransactionResult:"+result);
     }

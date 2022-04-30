@@ -14,6 +14,6 @@ import java.lang.annotation.*;
 public @interface TransactionMessage {
     String topic() default "";
     String tag() default "*";
-    Class<? extends LocalTransactionExecuter> executer();
+    String executorPath();
     String arg();
 }
