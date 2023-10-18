@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="wjh-common-mq" />
+        <module name="wjh-common-test" />
+        <module name="wjh-common-logs" />
+        <module name="wjh-common-swagger" />
+        <module name="wjh-common-logs-v1" />
+        <module name="wjh-common-core" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

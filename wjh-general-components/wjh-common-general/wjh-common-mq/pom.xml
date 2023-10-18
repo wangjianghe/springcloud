@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.wjh</groupId>
-        <artifactId>wjh-general-components</artifactId>
+        <artifactId>wjh-common-general</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>wjh-common-mq</artifactId>
@@ -21,7 +21,7 @@
         <dependency>
             <groupId>org.apache.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
-            <version>4.2.0</version>
+            <version>5.1.3</version>
         </dependency>
     </dependencies>
 

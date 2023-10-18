@@ -1,7 +1,7 @@
 package com.wjh.wjhcom.common.mq.rocket.annotation;
 
 import com.wjh.wjhcom.common.mq.rocket.constants.SelectorType;
-import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
+import org.apache.rocketmq.remoting.protocol.heartbeat.MessageModel;
 import org.springframework.stereotype.Component;
 
 import java.lang.annotation.*;

@@ -73,8 +73,18 @@ public class RocketAspect implements ApplicationContextAware {
         return o;
     }
     public void sendCommonMessage(CommonMessage message,DefaultMQProducer producer,Object o) throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
+
         String objString=JSON.toJSONString(o);
         Message sendMessage=new Message(message.topic(),message.tag(),objString.getBytes());
+        if (message.delayTimeLevel()>0){
+            sendMessage.setDelayTimeLevel(message.delayTimeLevel());
+        }else if (message.delayTimeSec()>0){
+            sendMessage.setDelayTimeSec(message.delayTimeSec());
+        }else if (message.delayTimeMs()>0){
+            sendMessage.setDelayTimeMs(message.delayTimeMs());
+        }else if (message.deliverTimeMs()>0){
+            sendMessage.setDeliverTimeMs(message.deliverTimeMs());
+        }
         if (MessageSendType.SEND.equals(message.messageSendType())){
             producer.send(sendMessage);
         }else if (MessageSendType.SEND_ASYNC.equals(message.messageSendType())){

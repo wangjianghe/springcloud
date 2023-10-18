@@ -53,19 +53,24 @@ public class RocketProducerContainer implements ApplicationContextAware {
                 if (commonMessage!=null&&transactionMessage!=null){
                     log.error("commonMessage和transactionMessage不能同时存在");
                 }else if(commonMessage!=null){
-                    Object producer=createProducer(bean,rocketProperties);
                     String producerKey=rocketMessage.groupId() +
                             commonMessage.topic() +
                             commonMessage.tag();
-                    log.info("product-info-{}",producerKey);
-                    producerContainer.put(producerKey,producer);
+                    //不存在才去创建
+                    if (!producerContainer.containsKey(producerKey)){
+                        log.info("product-info-{}",producerKey);
+                        Object producer=createProducer(bean,rocketProperties);
+                        producerContainer.put(producerKey,producer);
+                    }
                 }else if (transactionMessage!=null){
-                    Object producer=createProducer(bean,rocketProperties);
                     String producerKey=rocketMessage.groupId() +
                             transactionMessage.topic() +
                             transactionMessage.tag();
-                    log.info("transaction-product-info-{}",producerKey);
-                    producerContainer.put(producerKey,producer);
+                    if (!producerContainer.containsKey(producerKey)){
+                        log.info("transaction-product-info-{}",producerKey);
+                        Object producer=createProducer(bean,rocketProperties);
+                        producerContainer.put(producerKey,producer);
+                    }
                 }
             }
         }

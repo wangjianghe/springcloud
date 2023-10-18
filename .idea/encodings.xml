@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/wjh-general-components/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-logs-v1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-logs-v1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-logs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-logs/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-mq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-mq/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-swagger/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-swagger/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/wjh-general-components/wjh-common-general/wjh-common-test/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

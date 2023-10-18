@@ -13,7 +13,7 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
 import org.apache.rocketmq.client.producer.TransactionMQProducer;
-import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
+import org.apache.rocketmq.remoting.protocol.heartbeat.MessageModel;
 import org.springframework.util.StringUtils;
 
 import java.util.Properties;
@@ -47,6 +47,7 @@ public class RocketMqClientFactory implements MqClientFactory {
         producer.setCheckRequestHoldMax(message.checkRequestHoldMax());
         return producer;
     }
+
 
     @Override
     public Object createConsumer(Properties properties,Object consumerObject) throws Exception {
